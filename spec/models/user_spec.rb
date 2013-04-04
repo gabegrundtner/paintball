@@ -22,4 +22,8 @@ describe User do
         g1.user(:force_reload=>:true) == nil
         g2.user(:force_reload=>:true) == nil
     end
+
+    it 'should have an admin named Gabe' do
+    	User.admins.find_by_name("Gabe") != nil
+    end
 end

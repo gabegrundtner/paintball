@@ -4,8 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Password</th>
-    <th>Is admin</th>
     <th>Status</th>
     <th></th>
     <th></th>
@@ -16,8 +14,6 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= user.password %></td>
-    <td><%= user.is_admin %></td>
     <td><%= user.status %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

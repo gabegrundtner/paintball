@@ -7,7 +7,8 @@ describe Participant do
   	@p = Participant.create!(tournament_id: @tourny.id, user_id: @user.id)
   end
 
-  it 'should have played at Vintage' do
+  it 'Gabe should have played at Vintage' do
+  	User.find_by_name("Gabe").id.should == @p.user_id
   	Tournament.find_by_location("Vintage Paintball, River Falls, WI").id.should == @p.tournament_id
   end
 
