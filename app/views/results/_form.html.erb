@@ -16,6 +16,10 @@
     <%= f.number_field :tournament_id %>
   </div>
   <div class="field">
+    <%= f.label :tournament_id %><br />  
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :date %>
+  </div>
+  <div class="field">
     <%= f.label :place %><br />
     <%= f.text_field :place %>
   </div>

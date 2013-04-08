@@ -14,7 +14,7 @@
 
 <% @gears.each do |gear| %>
   <tr>
-    <td><%= gear.user_id %></td>
+    <td><%= User.find(gear.user_id).name %></td>
     <td><%= gear.cost %></td>
     <td><%= gear.name %></td>
     <td><%= gear.description %></td>

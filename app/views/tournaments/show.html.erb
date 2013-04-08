@@ -9,6 +9,12 @@
   <b>Location:</b>
   <%= @tournament.location %>
 </p>
+<p>
+	<b>Participants</b>
+	<% @tournament.participants.each do |participant| %>
+	<p><%= User.find(participant.user_id).name %></p>
+	<% end %>
+</p>
 
 
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |

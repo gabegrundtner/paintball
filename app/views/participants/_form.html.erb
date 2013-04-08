@@ -11,13 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tournament_id %><br />
-    <%= f.number_field :tournament_id %>
+  
+  <div class="field">  
+    <%= f.label :tournament_id %><br />  
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :date %>  
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+  
+  <div class="field">  
+    <%= f.label :user_id %><br />  
+    <%= f.collection_select :user_id, User.all, :id, :name %>  
   </div>
   <div class="actions">
     <%= f.submit %>

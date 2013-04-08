@@ -15,6 +15,13 @@
   <b>Status:</b>
   <%= @user.status %>
 </p>
+<p>
+  <b>Gear:</b>
+  <% @user.gears.each do |gear| %>
+  <p><%= Gear.find(gear.user_id).name %></p>
+  <% end %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

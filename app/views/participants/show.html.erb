@@ -2,12 +2,13 @@
 
 <p>
   <b>Tournament:</b>
-  <%= @participant.tournament_id %>
+  <%= Tournament.find(@participant.tournament_id).location %> -
+  <%= Tournament.find(@participant.tournament_id).date %>
 </p>
 
 <p>
   <b>User:</b>
-  <%= @participant.user_id %>
+  <%= User.find(@participant.user_id).name %>
 </p>
 
 

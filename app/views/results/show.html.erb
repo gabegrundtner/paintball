@@ -2,7 +2,8 @@
 
 <p>
   <b>Tournament:</b>
-  <%= @result.tournament_id %>
+  <%= Tournament.find(@result.tournament_id).location %> -
+  <%= Tournament.find(@result.tournament_id).date %>
 </p>
 
 <p>

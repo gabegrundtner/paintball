@@ -12,7 +12,7 @@
 
 <% @results.each do |result| %>
   <tr>
-    <td><%= result.tournament_id %></td>
+    <td><%= Tournament.find(result.tournament_id).location %> - <%= Tournament.find(result.tournament_id).date %></td>
     <td><%= result.place %></td>
     <td><%= result.team_name %></td>
     <td><%= link_to 'Show', result %></td>

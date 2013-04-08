@@ -2,7 +2,7 @@
 
 <p>
   <b>User:</b>
-  <%= @gear.user_id %>
+  <%= User.find(@gear.user_id).name %>
 </p>
 
 <p>
