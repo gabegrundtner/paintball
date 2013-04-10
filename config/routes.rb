@@ -1,4 +1,9 @@
 Paintball::Application.routes.draw do
+
+  resources :tournaments do
+    resources :participants
+    resources :results
+  end
   resources :users
 
   resources :results

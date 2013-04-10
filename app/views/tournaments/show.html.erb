@@ -9,12 +9,33 @@
   <b>Location:</b>
   <%= @tournament.location %>
 </p>
+<div class="dropdown">
+	<b>SMU Participants</b>
+	<ul>
+	  <% @tournament.participants.each do |participant| %>
+	  <li><%= User.find(participant.user_id).name %></li>
+	  <% end %>
+    </ul>
+    <%= link_to 'Add Participants', new_participant_path %>
+</div>
 <p>
-	<b>Participants</b>
-	<% @tournament.participants.each do |participant| %>
-	<p><%= User.find(participant.user_id).name %></p>
+	<b>Results:</b>
+	<% @tournament.results.each do |result| %>
+	<p><%= result.place %> <%= result.team_name %></p>
 	<% end %>
+	<%= link_to 'Add result', new_result_path %>
 </p>
+
+<div class="dropdown">  
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>  
+                        <ul class="dropdown-menu">  
+                            <li><a href="#">PHP</a></li>  
+                            <li><a href="#">MySQL</a></li>  
+                            <li class="divider"></li>  
+                            <li><a href="#">JavaScript</a></li>  
+                            <li><a href="#">HTML5</a></li>  
+                        </ul>  
+                    </div>  
 
 
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
