@@ -16,14 +16,14 @@
 	  <li><%= User.find(participant.user_id).name %></li>
 	  <% end %>
     </ul>
-    <%= link_to 'Add Participants', new_participant_path %>
+    <%= link_to 'Add Participants', new_tournament_participant_path(@tournament) %>
 </div>
 <p>
 	<b>Results:</b>
 	<% @tournament.results.each do |result| %>
 	<p><%= result.place %> <%= result.team_name %></p>
 	<% end %>
-	<%= link_to 'Add result', new_result_path %>
+	<%= link_to 'Add result', new_tournament_result_path(@tournament) %>
 </p>
 
 <div class="dropdown">  

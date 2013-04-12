@@ -4,15 +4,14 @@ Paintball::Application.routes.draw do
     resources :participants
     resources :results
   end
+
+  resources :users do
+    resources :gears
+  end
   resources :users
-
-  resources :results
-
-  resources :participants
 
   resources :tournaments
 
-  resources :gears
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -20,6 +20,7 @@
   <% @user.gears.each do |gear| %>
   <p><%= Gear.find(gear.user_id).name %></p>
   <% end %>
+  <%= link_to 'Add Gear', new_user_gear_path(@user) %>
 </p>
 
 
