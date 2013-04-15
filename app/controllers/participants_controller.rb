@@ -42,10 +42,11 @@ class ParticipantsController < ApplicationController
   # POST /participants.json
   def create
     @participant = Participant.new(params[:participant])
+    @tournament = Tournament.find(params[:tournament_id])
 
     respond_to do |format|
       if @participant.save
-        format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
+        format.html { redirect_to @tournament, notice: 'Participant was successfully created.' }
         format.json { render json: @participant, status: :created, location: @participant }
       else
         format.html { render action: "new" }
