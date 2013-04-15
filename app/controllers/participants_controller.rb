@@ -24,6 +24,7 @@ class ParticipantsController < ApplicationController
   # GET /participants/new
   # GET /participants/new.json
   def new
+    @tournament = Tournament.find(params[:tournament_id])
     @participant = Participant.new
 
     respond_to do |format|

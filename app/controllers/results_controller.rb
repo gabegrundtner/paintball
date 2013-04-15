@@ -25,6 +25,7 @@ class ResultsController < ApplicationController
   # GET /results/new.json
   def new
     @result = Result.new
+    @tournament = Tournament.find(params[:tournament_id])
 
     respond_to do |format|
       format.html # new.html.erb

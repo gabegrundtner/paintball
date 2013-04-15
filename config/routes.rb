@@ -10,6 +10,8 @@ Paintball::Application.routes.draw do
   end
   resources :users
 
+  resources :gears
+
   resources :tournaments
 
 
