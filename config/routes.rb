@@ -1,5 +1,11 @@
 Paintball::Application.routes.draw do
 
+  get "static_pages/home"
+
+  get "static_pages/contact"
+
+  get "static_pages/about"
+
   resources :tournaments do
     resources :participants
     resources :results
@@ -9,6 +15,8 @@ Paintball::Application.routes.draw do
     resources :gears
   end
   resources :users
+
+  root to: 'static_pages#home'
 
   resources :gears
 
