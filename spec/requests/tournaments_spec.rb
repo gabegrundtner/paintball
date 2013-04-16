@@ -15,8 +15,8 @@ describe "Tournaments" do
  	end
 
  	it { should have_selector('h1', text: 'Listing tournaments') }
-
- 	it "should list each user" do
+#user story 1, 39
+ 	it "should list each tournament" do
         Tournament.all.each do |tourny|
           page.should have_selector('td', text: tourny.date)
           page.should have_selector('td', text: tourny.location)
@@ -35,14 +35,14 @@ describe "Tournaments" do
  	r2 = Result.create!(tournament_id: @tourny.id, place: "2nd", team_name: "Viturbo")
 
  	before { visit tournament_path(@tourny) }
-
- 	describe "participants" do
+#user stories 3, 46
+ 	describe "it should have participants" do
  		@tourny.participants.each do |p|
  			it { should have_selector('li', text: User.find(p.user_id).name) }
  		end
     end
-
-    describe "results" do
+#user stories 42, 2,
+    describe "it should have results" do
  		@tourny.results.each do |r|
  			it { should have_selector('td', text: r.place) }
  		end
