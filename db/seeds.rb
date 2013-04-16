@@ -10,4 +10,12 @@ u3 = User.create!(email: "jfbean10@smumn.edu", is_admin: true, name: "Jim", pass
 
 t1 = Tournament.create!(date: "12/12/12", location: "River Falls, WI")
 t2 = Tournament.create!(date: "4/13/13", location: "Minnetonka, MN")
-t1 = Tournament.create!(date: "9/4/13", location: "Apple Valley, MN")
+t3 = Tournament.create!(date: "9/4/13", location: "Apple Valley, MN")
+
+p1 = Participant.create!(tournament_id: t1, user_id: u1
+p2 = Participant.create!(tournament_id: t2, user_id: u1)
+p3 = Participant.create!(tournament_id: t3, user_id: u1)
+
+r1 = Result.create!(tournament_id: t1, place: "1st", team_name: "Saint Mary's")
+r2 = Result.create!(tournament_id: t2, place: "1st", team_name: "Saint Mary's")
+r3 = Result.create!(tournament_id: t3, place: "1st", team_name: "Saint Mary's")

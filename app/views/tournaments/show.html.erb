@@ -18,15 +18,24 @@
     </ul>
     <%= link_to 'Add Participants', new_tournament_participant_path(@tournament) %>
 </div>
-<p>
-	<b>Results:</b>
-	<% @tournament.results.each do |result| %>
-	<p><%= result.place %> <%= result.team_name %></p>
-	<% end %>
-	<%= link_to 'Add result', new_tournament_result_path(@tournament) %>
-</p>
 
-<div class="dropdown">  
+<table clase="table table-bordered">
+  <tr>
+    <th>Place</th>
+    <th>Team Name</th>
+  </tr>
+
+<% @tournament.results.each do |result| %>
+  <tr>
+    <td><%= result.place %></td>
+    <td><%= result.team_name %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Add Results', new_tournament_result_path(@tournament) %>
+<br />
+
+<!--<div class="dropdown">  
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials<b class="caret"></b></a>  
                         <ul class="dropdown-menu">  
                             <li><a href="#">PHP</a></li>  
@@ -35,7 +44,7 @@
                             <li><a href="#">JavaScript</a></li>  
                             <li><a href="#">HTML5</a></li>  
                         </ul>  
-                    </div>  
+                    </div>  -->
 
 
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |

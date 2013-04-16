@@ -1,11 +1,52 @@
 require 'spec_helper'
 
 describe "Tournaments" do
-  describe "GET /tournaments" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get tournaments_path
-      response.status.should be(200)
+	##before(:each) do
+		@tourny = Tournament.create!(date: "4/13/13", location: "Vintage Paintball, River Falls, WI")
+		@user = User.create!(name: "Gabe", email: "gabe@example.com", status: "junior", is_admin: true, password: "password")
+		@user2 = User.create!(name: "Sam", email: "sam@example.com", status: "junior", is_admin: false, password: "password")
+	#end
+
+ subject { page }
+
+ describe "index" do
+ 	before(:each) do
+ 		visit tournaments_path
+ 	end
+
+ 	it { should have_selector('h1', text: 'Listing tournaments') }
+
+ 	it "should list each user" do
+        Tournament.all.each do |tourny|
+          page.should have_selector('td', text: tourny.date)
+          page.should have_selector('td', text: tourny.location)
+        end
+      end
+
+ end
+
+ describe "show" do
+ 	##t1 = Tournament.create!(date: "12/12/12", location: "Vintage Paintball, River Falls, WI")
+ 	##u1 = User.create!(name: "Ron", email: "ron@example.com", status: "junior", is_admin: true, password: "password")
+	##u2 = User.create!(name: "Jim", email: "jim@example.com", status: "junior", is_admin: false, password: "password")
+ 	p1 = Participant.create!(tournament_id: @tourny.id, user_id: @user.id)
+ 	p2 = Participant.create!(tournament_id: @tourny.id, user_id: @user2.id)
+ 	r1 = Result.create!(tournament_id: @tourny.id, place: "1st", team_name: "Saint Mary's")
+ 	r2 = Result.create!(tournament_id: @tourny.id, place: "2nd", team_name: "Viturbo")
+
+ 	before { visit tournament_path(@tourny) }
+
+ 	describe "participants" do
+ 		@tourny.participants.each do |p|
+ 			it { should have_selector('li', text: User.find(p.user_id).name) }
+ 		end
     end
-  end
+
+    describe "results" do
+ 		@tourny.results.each do |r|
+ 			it { should have_selector('td', text: r.place) }
+ 		end
+    end
+ end
+
 end
