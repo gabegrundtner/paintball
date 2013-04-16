@@ -12,7 +12,7 @@ t1 = Tournament.create!(date: "12/12/12", location: "River Falls, WI")
 t2 = Tournament.create!(date: "4/13/13", location: "Minnetonka, MN")
 t3 = Tournament.create!(date: "9/4/13", location: "Apple Valley, MN")
 
-p1 = Participant.create!(tournament_id: t1, user_id: u1
+p1 = Participant.create!(tournament_id: t1, user_id: u1)
 p2 = Participant.create!(tournament_id: t2, user_id: u1)
 p3 = Participant.create!(tournament_id: t3, user_id: u1)
 
