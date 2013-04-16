@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Static pages"  do
 	describe "Home page" do
-		#user story 10
+		#user story 10,1,12
 		it "should have content 'home of SMU Kids' and links to tournaments and players" do
 			visit '/static_pages/home'
 			page.should have_content('HOME OF THE SMU KIDS')
