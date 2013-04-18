@@ -43,6 +43,7 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(params[:participant])
     @tournament = Tournament.find(params[:tournament_id])
+    @participant.tournament_id = @tournament.id
 
     respond_to do |format|
       if @participant.save
