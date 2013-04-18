@@ -9,15 +9,19 @@
   <b>Location:</b>
   <%= @tournament.location %>
 </p>
+
 <div class="dropdown">
-	<b>SMU Participants</b>
-	<ul>
+	<p>SMU Participants</p><button class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></button>
+	<ul class="dropdown-menu">
 	  <% @tournament.participants.each do |participant| %>
 	  <li><%= User.find(participant.user_id).name %></li>
 	  <% end %>
     </ul>
-    <%= link_to 'Add Participants', new_tournament_participant_path(@tournament) %>
+    
 </div>
+
+<br />
+<%= link_to 'Add Participants', new_tournament_participant_path(@tournament) %>
 
 <table class="table table-bordered">
   <tr>
