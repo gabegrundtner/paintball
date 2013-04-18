@@ -43,6 +43,7 @@ class ResultsController < ApplicationController
   def create
     @result = Result.new(params[:result])
     @tournament = Tournament.find(params[:tournament_id])
+    @result.tournament_id = @tournament.id
 
     respond_to do |format|
       if @result.save
