@@ -47,7 +47,7 @@ class ResultsController < ApplicationController
 
     respond_to do |format|
       if @result.save
-        format.html { redirect_to @tournament, notice: 'Result was successfully created.' }
+        format.html { redirect_to new_tournament_result_path(@tournament), notice: 'Result was successfully created.' }
         format.json { render json: @result, status: :created, location: @result }
       else
         format.html { render action: "new" }
