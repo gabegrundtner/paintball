@@ -25,6 +25,7 @@ class GearsController < ApplicationController
   # GET /gears/new.json
   def new
     @gear = Gear.new
+    @user = User.find(params[:user_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +42,12 @@ class GearsController < ApplicationController
   # POST /gears.json
   def create
     @gear = Gear.new(params[:gear])
+    @user = User.find(params[:user_id])
+    @gear.user_id = @user.id
 
     respond_to do |format|
       if @gear.save
-        format.html { redirect_to @gear, notice: 'Gear was successfully created.' }
+        format.html { redirect_to new_user_gear_path(@user), notice: 'Gear was successfully created.' }
         format.json { render json: @gear, status: :created, location: @gear }
       else
         format.html { render action: "new" }
