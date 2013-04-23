@@ -11,9 +11,17 @@
     </div>
   <% end %>
 
+  
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.text_field :date %>
+    <%= f.date_select :date,
+    { :default => {:year => 2008, 
+           :month => 11, 
+                    :day => 4},
+       :use_short_month=>true 
+    },
+     :class=>'date_select' %>
+
   </div>
   <div class="field">
     <%= f.label :location %><br />
