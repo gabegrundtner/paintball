@@ -2,31 +2,6 @@
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Cost</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>For sale</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @gears.each do |gear| %>
-  <tr>
-    <td><%= User.find(gear.user_id).name %></td>
-    <td><%= gear.cost %></td>
-    <td><%= gear.name %></td>
-    <td><%= gear.description %></td>
-    <td><%= gear.for_sale %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<table>
-  <tr>
     <th>Name</th>
     <th>Owner</th>
     <th>For Sale</th>
