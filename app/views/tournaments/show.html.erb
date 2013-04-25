@@ -32,7 +32,7 @@
 <% @tournament.results.each do |result| %>
   <tr>
     <td><%= result.place %></td>
-    <td><%= result.team_name %></td>
+    <td><%= result.team_name %>   <%= link_to 'delete result', tournament_result_path(@tournament, result), method: :delete %></td>
   </tr>
 <% end %>
 </table>

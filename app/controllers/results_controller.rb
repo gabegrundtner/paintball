@@ -76,10 +76,11 @@ class ResultsController < ApplicationController
   # DELETE /results/1.json
   def destroy
     @result = Result.find(params[:id])
+    @tournament = Tournament.find(params[:tournament_id])
     @result.destroy
 
     respond_to do |format|
-      format.html { redirect_to results_url }
+      format.html { redirect_to @tournament }
       format.json { head :no_content }
     end
   end
