@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :is_admin, :name, :password, :status
-  has_many :gears
+  has_many :gears, dependent: :destroy
   has_many :participants
 
   validates :name, presence: true, length: { maximum: 50 }

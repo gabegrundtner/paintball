@@ -76,10 +76,12 @@ class GearsController < ApplicationController
   # DELETE /gears/1.json
   def destroy
     @gear = Gear.find(params[:id])
+    @user = User.find(params[:user_id])
     @gear.destroy
+    
 
     respond_to do |format|
-      format.html { redirect_to gears_url }
+      format.html { redirect_to @user }
       format.json { head :no_content }
     end
   end
