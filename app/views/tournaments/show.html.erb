@@ -14,7 +14,7 @@
 	<p><b>SMU Participants</b></p>
 	<ul>
 	  <% @tournament.participants.each do |participant| %>
-	  <li><%= User.find(participant.user_id).name %></li>
+	  <li><%= User.find(participant.user_id).name %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, participant), confirm: "Are you sure?", method: :delete %></li>
 	  <% end %>
     </ul>
     
