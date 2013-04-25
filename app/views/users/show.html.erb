@@ -19,7 +19,7 @@
   <b>Gear:</b>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
-      <p><%= gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete %></p>
+      <p id="gear_'<%= gear.id %>'"><%= gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete, remote: true %></p>
     <% end %>
   </div>
   <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %>

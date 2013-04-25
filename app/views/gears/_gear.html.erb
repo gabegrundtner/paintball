@@ -1,1 +1,1 @@
-<p><%= @gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, @gear), confirm: "Are you sure?", method: :delete %></p>
+<p id="gear_'<%= @gear.id %>'"><%= @gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, @gear), confirm: "Are you sure?", method: :delete, remote: true %></p>

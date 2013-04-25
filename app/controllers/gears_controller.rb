@@ -85,6 +85,7 @@ class GearsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @user }
       format.json { head :no_content }
+      format.js
     end
   end
 end
