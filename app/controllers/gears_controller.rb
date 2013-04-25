@@ -30,6 +30,7 @@ class GearsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @gear }
+      format.js # new.js.erb
     end
   end
 
@@ -47,8 +48,9 @@ class GearsController < ApplicationController
 
     respond_to do |format|
       if @gear.save
-        format.html { redirect_to new_user_gear_path(@user), notice: 'Gear was successfully created.' }
+        format.html { redirect_to @user, notice: 'Gear was successfully created.' }
         format.json { render json: @gear, status: :created, location: @gear }
+        format.js #create.js.erb
       else
         format.html { render action: "new" }
         format.json { render json: @gear.errors, status: :unprocessable_entity }

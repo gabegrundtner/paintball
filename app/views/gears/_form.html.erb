@@ -1,4 +1,5 @@
-<%= form_for([@user, @gear]) do |f| %>
+<div class="new_gear">
+<%= form_for([@user, @gear], remote: true) do |f| %>
   <% if @gear.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gear.errors.count, "error") %> prohibited this gear from being saved:</h2>
@@ -32,3 +33,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

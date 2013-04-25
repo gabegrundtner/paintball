@@ -15,13 +15,15 @@
   <b>Status:</b>
   <%= @user.status %>
 </p>
-<p>
+
   <b>Gear:</b>
-  <% @user.gears.each do |gear| %>
-  <p><%= gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete %></p>
-  <% end %>
-  <%= link_to 'Add Gear', new_user_gear_path(@user) %>
-</p>
+  <div id="gear_listing">
+    <% @user.gears.each do |gear| %>
+      <p><%= gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete %></p>
+    <% end %>
+  </div>
+  <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %>
+
 
 
 
