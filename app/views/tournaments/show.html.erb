@@ -12,16 +12,16 @@
 
 <div>
 	<p><b>SMU Participants</b></p>
-	<ul>
+	<ul id="participant_listing">
 	  <% @tournament.participants.each do |participant| %>
-	  <li><%= User.find(participant.user_id).name %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, participant), confirm: "Are you sure?", method: :delete %></li>
+	  <li id="<%= participant_id_helper(participant) %>"><%= User.find(participant.user_id).name %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, participant), confirm: "Are you sure?", method: :delete %></li>
 	  <% end %>
     </ul>
     
 </div>
 
 <br />
-<%= link_to 'Add Participants', new_tournament_participant_path(@tournament) %>
+<%= link_to 'Add Participants', new_tournament_participant_path(@tournament), id: "new_tournament_participant_link", remote: true %>
 
 <table class="table table-bordered">
   <tr>
