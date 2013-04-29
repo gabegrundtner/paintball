@@ -84,6 +84,7 @@ class ParticipantsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @tournament }
       format.json { head :no_content }
+      format.js
     end
   end
 end
