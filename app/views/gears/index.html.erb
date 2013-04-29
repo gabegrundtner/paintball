@@ -13,7 +13,7 @@
 
 <% User.all.each do |user| %>
 <% user.gears.each do |gear| %>
-  <tr>
+  <tr id="<%= gear_id_helper(gear) %>">
     <td><%= gear.name %></td>
     <td><%= user.name %></td>
     <% if gear.for_sale %>
@@ -23,7 +23,7 @@
     <td>No</td>
     <td>N/A</td>
     <% end %>
-    <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete, remote: true %></td>
   </tr>
 <% end %>
 <% end %>
