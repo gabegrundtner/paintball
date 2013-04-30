@@ -23,7 +23,7 @@
 <br />
 <%= link_to 'Add Participants', new_tournament_participant_path(@tournament), id: "new_tournament_participant_link", remote: true %>
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="result_listing">
   <tr>
     <th>Place</th>
     <th>Team Name</th>
@@ -36,7 +36,7 @@
   </tr>
 <% end %>
 </table>
-<%= link_to 'Add Results', new_tournament_result_path(@tournament) %>
+<%= link_to 'Add Results', new_tournament_result_path(@tournament), id: "new_tournament_result_link", remote: true %>
 <br />
 
 <div class="dropdown">  

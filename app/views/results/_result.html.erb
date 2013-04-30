@@ -1,0 +1,4 @@
+<tr id="<%= result_id_helper(@result) %>">
+    <td><%= @result.place %></td>
+    <td><%= @result.team_name %>   <%= link_to 'delete result', tournament_result_path(@tournament, @result), method: :delete, remote: true %></td>
+  </tr>
