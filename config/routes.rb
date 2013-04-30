@@ -21,6 +21,10 @@ Paintball::Application.routes.draw do
 
   resources :tournaments
 
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   resources :gears, only: :index
 
 
