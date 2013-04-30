@@ -1,4 +1,4 @@
-<div class="new_gear">
+<div id="new_gear">
 <%= form_for([@user, @gear], remote: true) do |f| %>
   <% if @gear.errors.any? %>
     <div id="error_explanation">
