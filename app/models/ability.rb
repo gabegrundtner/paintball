@@ -7,14 +7,22 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.is_admin?
          can :manage, :all
-       elsif user.status != nil #there has to be a way to say signed in user who is not admin
-         can :manage, Gear, :user_id => user.id
+       #elsif user.status != nil #there has to be a way to say signed in user who is not admin
+         #can :manage, Gear, :user_id => user.id
          # having trouble with the above and below. How can I create gear only for a certain user? also, not letting me manager gear that signed in user owns
          # how come I can manage users on their profile, but not in the index?
-         can :manage, User, :id => user.id
-         can :read, :all
+         #can :manage, User, :id => user.id
+         #can :read, :all
        else
          can :read, [Tournament, User]
+       end
+
+       if user.status != nil
+        can :read, :all
+        can :manage, User, :id => user.id
+        can :manage, Gear, :user_id => user.id
+        #can :manage, Gear do |gear|
+            #gear.try(:user) == user
        end
     #
     # The first argument to `can` is the action you are giving the user 

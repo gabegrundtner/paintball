@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <% if can? :create, @gear %>
-  <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %>
+  <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %> |
   <% end %>
 
 
@@ -31,4 +31,4 @@
 <% if can? :update, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
-<%= link_to 'Back', users_path %>
+<%= link_to 'All Users', users_path %>

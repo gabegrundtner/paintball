@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
+  <b>Owner:</b>
   <%= User.find(@gear.user_id).name %>
 </p>
 
@@ -24,5 +24,11 @@
   <b>For sale:</b>
   <%= @gear.for_sale %>
 </p>
+
+
+<br >
+
+<%= link_to "All Gear", gears_path %> |
+<%= link_to "Owner's Profile", user_path(@gear.user_id) %>
 
 

@@ -14,7 +14,7 @@
 <% User.all.each do |user| %>
 <% user.gears.each do |gear| %>
   <tr id="<%= gear_id_helper(gear) %>">
-    <td><%= gear.name %></td>
+    <td><%= link_to gear.name, gear %></td>
     <td><%= user.name %></td>
     <% if gear.for_sale %>
     <td>Yes</td>

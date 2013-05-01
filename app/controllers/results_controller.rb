@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  load_and_auhtorize_resource
   # GET /results
   # GET /results.json
   def index

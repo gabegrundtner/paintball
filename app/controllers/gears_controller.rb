@@ -1,4 +1,5 @@
 class GearsController < ApplicationController
+  load_and_authorize_resource
   # GET /gears
   # GET /gears.json
   def index
