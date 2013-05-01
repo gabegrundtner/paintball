@@ -14,14 +14,16 @@
 	<p><b>SMU Participants</b></p>
 	<ul id="participant_listing">
 	  <% @tournament.participants.each do |participant| %>
-	  <li id="<%= participant_id_helper(participant) %>"><%= User.find(participant.user_id).name %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, participant), confirm: "Are you sure?", method: :delete, remote: true %></li>
+	  <li id="<%= participant_id_helper(participant) %>"><%= User.find(participant.user_id).name %>   <% if can? :destroy, @participant %><%= link_to 'delete participant', tournament_participant_path(@tournament, participant), confirm: "Are you sure?", method: :delete, remote: true %><% end %></li>
 	  <% end %>
     </ul>
     
 </div>
 
 <br />
+<% if can? :create, @particiant %>
 <%= link_to 'Add Participants', new_tournament_participant_path(@tournament), id: "new_tournament_participant_link", remote: true %>
+<% end %>
 
 <table class="table table-bordered" id="result_listing">
   <tr>
@@ -32,11 +34,13 @@
 <% @tournament.results.each do |result| %>
   <tr id="<%= result_id_helper(result) %>">
     <td><%= result.place %></td>
-    <td><%= result.team_name %>   <%= link_to 'delete result', tournament_result_path(@tournament, result), method: :delete, remote: true %></td>
+    <td><%= result.team_name %>   <% if can? :destroy, @result %><%= link_to 'delete result', tournament_result_path(@tournament, result), method: :delete, remote: true %> <% end %></td>
   </tr>
 <% end %>
 </table>
+<% if can? :create, @result %>
 <%= link_to 'Add Results', new_tournament_result_path(@tournament), id: "new_tournament_result_link", remote: true %>
+<% end %>
 <br />
 
 <div class="dropdown">  
