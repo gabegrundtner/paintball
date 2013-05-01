@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.select :status, %w[Freshmen Sophomore Junior Senior Alumni], {}, { :prompt => 'Select Place' } %>
   </div>
   <div class="actions">
     <%= f.submit "Create User" %>
