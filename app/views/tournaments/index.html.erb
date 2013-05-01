@@ -13,9 +13,11 @@
   <tr>
     <td><%= tournament.date %></td>
     <td><%= tournament.location %></td>
-    <td><%= link_to 'Show', tournament %></td>
+    <td><%= link_to 'View Tournament', tournament %></td>
+    <% if can? [:destroy, :update], @tournament %>
     <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
     <td><%= link_to 'Destroy', tournament, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
     
     
   </tr>
@@ -23,5 +25,6 @@
 </table>
 
 <br />
-
+<% if can? :create, @tournament %>
 <%= link_to 'New Tournament', new_tournament_path %>
+<% end %>

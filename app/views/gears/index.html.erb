@@ -23,7 +23,9 @@
     <td>No</td>
     <td>N/A</td>
     <% end %>
+    <% if can? :destroy, @gear %>
     <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete, remote: true %></td>
+    <% end %>
   </tr>
 <% end %>
 <% end %>

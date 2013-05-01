@@ -19,13 +19,16 @@
   <b>Gear:</b>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
-      <p id="<%= gear_id_helper(gear) %>"><%= gear.name %>   <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete, remote: true %></p>
+      <p id="<%= gear_id_helper(gear) %>"><%= gear.name %>  <% if can? :destroy, @gear %> <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete, remote: true %><% end %></p>
     <% end %>
   </div>
+  <% if can? :create, @gear %>
   <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %>
+  <% end %>
 
 
 
-
+<% if can? :update, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
 <%= link_to 'Back', users_path %>
