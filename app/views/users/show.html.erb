@@ -19,16 +19,12 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gear Interests<b class="caret"></b></a>  
                         <ul class="dropdown-menu">
                           <% @user.users_gears.each do |ug| %> 
-                            <li><%= link_to "#{User.find(ug.user_id).name}'s", User.find(ug.user_id) %> <%= link_to Gear.find(ug.gear_id).name, Gear.find(ug.gear_id) %></li>  
-                            <li><a href="#">MySQL</a></li>  
-                            <li class="divider"></li>  
-                            <li><a href="#">JavaScript</a></li>  
-                            <li><a href="#">HTML5</a></li>
+                            <li><%= link_to "#{User.find(Gear.find(ug.gear_id).user_id).name}'s #{Gear.find(ug.gear_id).name}",  Gear.find(ug.gear_id) %></li>  
                           <% end %>  
                         </ul>  
                     </div>  
   <% if can? :read, Gear.new %>
-  <b>Gear:</b>
+  <b>Owned Gear:</b>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
       <p id="<%= gear_id_helper(gear) %>"><%= link_to gear.name, gear %>  <% if can? :destroy, gear %> <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete, remote: true %><% end %></p>
