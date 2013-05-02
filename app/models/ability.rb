@@ -17,7 +17,7 @@ class Ability
          can :read, [Tournament, User]
        end
 
-       if user.status != nil
+       unless user.status.nil?
         can :read, :all
         can :manage, User, :id => user.id
         can :manage, Gear, :user_id => user.id
