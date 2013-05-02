@@ -7,7 +7,7 @@
 
 <p>
   <b>Cost:</b>
-  <%= @gear.cost %>
+  $<%= @gear.cost %>
 </p>
 
 <p>
@@ -32,10 +32,10 @@
 <br >
 <% unless current_user.id == @gear.user_id %>
 <div>
-  <% if current_user.interested_in.include?(@gear.id) %>
+  <% if current_user.is_interested(@gear) %>
   <button class="btn btn-large btn-primary" type="button" data-loading-text="Interested">Not Interested Anymore</button>
   <% else %>
-  <button class="btn-large btn-primary" type="button" data-loding-text="Uninterested">Mark Interested</button>
+ <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary" %>
   <% end %>
 </div>
 <% end %>

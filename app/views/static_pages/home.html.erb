@@ -4,16 +4,24 @@
 <br />
 <div class="container">
 	<body>
+	<div class="span3">
 		<p><b>HOME OF THE SMU KIDZ</b></p>
-	</body>
-</div>
-<br />
-<div class="footer">
+	</div>
+	<div class="span14" id="append_me">
+		<div id="place">
+			<p>Where the cool kids are</p>
+		</div>
+	</div>
+	<div class="span3">
 	<ul class="nav pull-right">
-		<li><%= link_to "tournaments", tournaments_path %></li>
+		<li><%= link_to "tournaments", static_pages_tournaments_path, remote: true %></li>
 		<li><%= link_to "players", users_path %></li>
 		<% if can? :read, @gear %>
 		<li><%= link_to 'gear', gears_path %>
 		<% end %>
 	</ul>
 </div>
+
+	</body>
+</div>
+<br />

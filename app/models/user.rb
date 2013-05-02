@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :gears, dependent: :destroy
   has_many :participants, dependent: :destroy
+  has_many :users_gears
+  
+  
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -28,6 +31,21 @@ class User < ActiveRecord::Base
   end
 
   def interested(gear)
-    self.interested_in.append(gear.id)
+    puts "****************** #{self.users_gears}"
+    self.users_gears.create!(gear_id: gear.id)
+    self.save
+    puts "****************** #{self.users_gears}"
+  end
+
+  def is_interested(gear)
+    self.users_gears.each do |ug|
+      return true if ug.gear_id == gear.id
+    end
+    return false
+  end
+  def uninterested(gear)
+    self.users_gears.each do |ug|
+      
+    end
   end
 end

@@ -6,12 +6,15 @@ Paintball::Application.routes.draw do
 
   get "static_pages/about"
 
+  get "static_pages/tournaments"
+
   resources :tournaments do
     resources :participants
     resources :results
   end
 
   resources :users do
+    get "mark_interested_gear", on: :member #member means you have to give it a user's id
     resources :gears
   end
   resources :users

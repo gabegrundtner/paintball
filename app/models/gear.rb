@@ -1,6 +1,8 @@
 class Gear < ActiveRecord::Base
   attr_accessible :cost, :description, :for_sale, :name, :user_id
   belongs_to :user
+  has_many :users_gears
+  
 
   validates :name, presence: true
   validates :user_id, presence: true

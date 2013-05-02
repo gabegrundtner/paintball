@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502043617) do
+ActiveRecord::Schema.define(:version => 20130502191754) do
 
   create_table "gears", :force => true do |t|
     t.integer  "user_id"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(:version => 20130502043617) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.text     "interested_in"
+  end
+
+  create_table "users_gears", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "gear_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
