@@ -15,15 +15,38 @@
   <b>Status:</b>
   <%= @user.status %>
 </p>
+<% if can? :read, Gear.new %>
 <div class="dropdown">  
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gear Interests<b class="caret"></b></a>  
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= @user.name %>'s Gear Interests<b class="caret"></b></a>  
                         <ul class="dropdown-menu">
                           <% @user.users_gears.each do |ug| %> 
                             <li><%= link_to "#{User.find(Gear.find(ug.gear_id).user_id).name}'s #{Gear.find(ug.gear_id).name}",  Gear.find(ug.gear_id) %></li>  
                           <% end %>  
                         </ul>  
                     </div>  
-  <% if can? :read, Gear.new %>
+  <% if current_user.id == @user.id %>
+  <div class="accordion" id="accordion2">
+     <div class="accordion-heading btn">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Anyone Interested in My Stuff?
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <ul>
+          <% @user.gears.each do |gear| %>
+            <% UsersGear.all.each do |ug| %>
+            <% if gear.id == ug.gear_id %>
+            <li><%= User.find(ug.user_id).name %>'s interested in your <%= gear.name %></li>
+            <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% end %>
   <b>Owned Gear:</b>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
