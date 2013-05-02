@@ -22,8 +22,23 @@
 
 <p>
   <b>For sale:</b>
-  <%= @gear.for_sale %>
+  <% if @gear.for_sale %>
+  Yes
+  <% else %>
+  No
+  <% end %>
 </p>
+
+<br >
+<% unless current_user.id == @gear.user_id %>
+<div>
+  <% if current_user.interested_in.include?(@gear.id) %>
+  <button class="btn btn-large btn-primary" type="button" data-loading-text="Interested">Not Interested Anymore</button>
+  <% else %>
+  <button class="btn-large btn-primary" type="button" data-loding-text="Uninterested">Mark Interested</button>
+  <% end %>
+</div>
+<% end %>
 
 
 <br >

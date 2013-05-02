@@ -15,7 +15,7 @@
   <b>Status:</b>
   <%= @user.status %>
 </p>
-
+  <% if can? :read, Gear.new %>
   <b>Gear:</b>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
@@ -24,6 +24,7 @@
   </div>
   <% if can? :create, Gear.new(:user_id => @user.id) %>
   <%= link_to 'Add Gear', new_user_gear_path(@user), id: "new_user_gear_link", remote: true %> |
+  <% end %>
   <% end %>
 
 

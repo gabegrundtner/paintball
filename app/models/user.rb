@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :is_admin, :name, :password, :status, :password_confirmation
+  serialize :interested_in,Array
+  attr_accessible :email, :is_admin, :name, :password, :status, :password_confirmation, :interested_in
   has_secure_password
   has_many :gears, dependent: :destroy
   has_many :participants, dependent: :destroy
@@ -12,6 +13,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  
   def self.STATUSES
    %w[Freshmen Sophomore Junior Senior Alumni]
   end
@@ -22,5 +25,9 @@ class User < ActiveRecord::Base
 
   def self.admins(admin = true)
   	where("is_admin == ? ", admin)
+  end
+
+  def interested(gear)
+    self.interested_in.append(gear.id)
   end
 end
