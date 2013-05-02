@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
     return false
   end
   def uninterested(gear)
-    self.users_gears.each do |ug|
-      
+    if self.is_interested(gear)
+      self.users_gears.find_by_gear_id(gear.id).destroy
     end
   end
 end

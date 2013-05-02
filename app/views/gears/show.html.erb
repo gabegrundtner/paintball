@@ -24,21 +24,24 @@
   <b>For sale:</b>
   <% if @gear.for_sale %>
   Yes
+  <br >
+<% unless current_user.id == @gear.user_id %>
+<div>
+  <% if current_user.is_interested(@gear) %>
+  <p id="already_interested">You're already interested</p><br >
+  <%= link_to "Not Interested Anymore", mark_uninterested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-danger" %>
+  <% else %>
+  <p id="interested">Interested in this piece of gear?</p><br >
+ <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary" %>
+  <% end %>
+</div>
+<% end %>
+
   <% else %>
   No
   <% end %>
 </p>
 
-<br >
-<% unless current_user.id == @gear.user_id %>
-<div>
-  <% if current_user.is_interested(@gear) %>
-  <button class="btn btn-large btn-primary" type="button" data-loading-text="Interested">Not Interested Anymore</button>
-  <% else %>
- <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary" %>
-  <% end %>
-</div>
-<% end %>
 
 
 <br >

@@ -15,6 +15,18 @@
   <b>Status:</b>
   <%= @user.status %>
 </p>
+<div class="dropdown">  
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gear Interests<b class="caret"></b></a>  
+                        <ul class="dropdown-menu">
+                          <% @user.users_gears.each do |ug| %> 
+                            <li><%= link_to "#{User.find(ug.user_id).name}'s", User.find(ug.user_id) %> <%= link_to Gear.find(ug.gear_id).name, Gear.find(ug.gear_id) %></li>  
+                            <li><a href="#">MySQL</a></li>  
+                            <li class="divider"></li>  
+                            <li><a href="#">JavaScript</a></li>  
+                            <li><a href="#">HTML5</a></li>
+                          <% end %>  
+                        </ul>  
+                    </div>  
   <% if can? :read, Gear.new %>
   <b>Gear:</b>
   <div id="gear_listing">

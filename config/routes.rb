@@ -15,6 +15,7 @@ Paintball::Application.routes.draw do
 
   resources :users do
     get "mark_interested_gear", on: :member #member means you have to give it a user's id
+    get "mark_uninterested_gear", on: :member
     resources :gears
   end
   resources :users
