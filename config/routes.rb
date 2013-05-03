@@ -8,6 +8,10 @@ Paintball::Application.routes.draw do
 
   get "static_pages/tournaments"
 
+  get "static_pages/users"
+
+  get "static_pages/gears"
+
   resources :tournaments do
     resources :participants
     resources :results

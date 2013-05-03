@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>For Sale</th>
+    <th>Cost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% User.all.each do |user| %>
+<% user.gears.each do |gear| %>
+  <tr id="<%= gear_id_helper(gear) %>">
+    <td><%= link_to gear.name, gear %></td>
+    <td><%= user.name %></td>
+    <% if gear.for_sale %>
+    <td>Yes</td>
+    <td>$<%= gear.cost %></td>
+    <% else %>
+    <td>No</td>
+    <td>N/A</td>
+    <% end %>
+    <% if can? :destroy, gear %>
+    <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete, remote: true %></td>
+    <% end %>
+  </tr>
+<% end %>
+<% end %>
+</table>

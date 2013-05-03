@@ -15,9 +15,9 @@
 	<div class="span3">
 	<ul class="nav pull-right">
 		<li><%= link_to "tournaments", static_pages_tournaments_path, remote: true %></li>
-		<li><%= link_to "players", users_path %></li>
+		<li><%= link_to "players", static_pages_users_path, remote: true %></li>
 		<% if can? :read, @gear %>
-		<li><%= link_to 'gear', gears_path %>
+		<li><%= link_to 'gear', static_pages_gears_path, remote: true %>
 		<% end %>
 	</ul>
 </div>
