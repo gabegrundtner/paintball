@@ -5,17 +5,15 @@
     <th>Location</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% Tournament.all.each do |tournament| %>
-  <tr>
+  <tr id="<%= tournament_id_helper(tournament) %>">
     <td><%= tournament.date %></td>
     <td><%= tournament.location %></td>
     <td><%= link_to 'View Tournament', tournament %></td>
     <% if can? [:destroy, :update], @tournament %>
-    <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-    <td><%= link_to 'Destroy', tournament, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', tournament, confirm: 'Are you sure?', method: :delete, remote: true %></td>
     <% end %>
     
     
