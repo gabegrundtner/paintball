@@ -48,6 +48,8 @@
 
 
 <div class="footer">
+<% if can? :update, Tournament %>
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<% end %>
 <%= link_to 'Back Home', root_path %>
 </div>
