@@ -1,1 +1,1 @@
-<li id="<%= participant_id_helper(@participant) %>"><%= User.find(@participant.user_id).name %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, @participant), confirm: "Are you sure?", method: :delete, remote: true %></li>
+<li id="<%= participant_id_helper(@participant) %>"><%= link_to User.find(@participant.user_id).name, User.find(@participant.user_id) %>   <%= link_to 'delete participant', tournament_participant_path(@tournament, @participant), confirm: "Are you sure?", method: :delete, remote: true %></li>

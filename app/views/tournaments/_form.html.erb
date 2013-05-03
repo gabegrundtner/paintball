@@ -1,5 +1,5 @@
 <div id="new_tournament">
-<%= form_for(@tournament, remote: true) do |f| %>
+<%= form_for(@tournament) do |f| %>
   <% if @tournament.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
