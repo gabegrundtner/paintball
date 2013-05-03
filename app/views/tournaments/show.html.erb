@@ -25,6 +25,8 @@
 <%= link_to 'Add Participants', new_tournament_participant_path(@tournament), id: "new_tournament_participant_link", remote: true %>
 <% end %>
 
+<br >
+
 <table class="table table-bordered" id="result_listing">
   <tr>
     <th>Place</th>
@@ -45,6 +47,7 @@
 
 
 
-
+<div class="footer">
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
+<%= link_to 'Back Home', root_path %>
+</div>

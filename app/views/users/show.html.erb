@@ -23,14 +23,15 @@
                             <li><%= link_to "#{User.find(Gear.find(ug.gear_id).user_id).name}'s #{Gear.find(ug.gear_id).name}",  Gear.find(ug.gear_id) %></li>  
                           <% end %>  
                         </ul>  
-                    </div>  
+                    </div>
+                    <br >
   <% if current_user.id == @user.id %>
   <div class="accordion" id="accordion2">
-     <div class="accordion-heading btn">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+     <!--<div class="accordion-heading btn">-->
+      <a class="accordion-toggle btn" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
         Anyone Interested in My Stuff?
       </a>
-    </div>
+    <!--</div>-->
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
         <ul>
@@ -63,4 +64,4 @@
 <% if can? :update, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
-<%= link_to 'All Users', users_path %>
+<%= link_to 'Back Home', root_path %>
