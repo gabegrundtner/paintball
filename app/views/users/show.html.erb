@@ -32,7 +32,7 @@
         Anyone Interested in My Stuff?
       </a>
     <!--</div>-->
-    <div id="collapseOne" class="accordion-body collapse in">
+    <div id="collapseOne" class="accordion-body collapse">
       <div class="accordion-inner">
         <ul>
           <% @user.gears.each do |gear| %>
@@ -48,7 +48,9 @@
   </div>
   </div>
   <% end %>
+  <p>
   <b>Owned Gear:</b>
+  </p>
   <div id="gear_listing">
     <% @user.gears.each do |gear| %>
       <p id="<%= gear_id_helper(gear) %>"><%= link_to gear.name, gear %>  <% if can? :destroy, gear %> <%= link_to 'Destroy gear', user_gear_path(@user, gear), confirm: "Are you sure?", method: :delete, remote: true %><% end %></p>

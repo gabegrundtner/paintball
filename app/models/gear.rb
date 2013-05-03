@@ -1,7 +1,7 @@
 class Gear < ActiveRecord::Base
   attr_accessible :cost, :description, :for_sale, :name, :user_id
   belongs_to :user
-  has_many :users_gears
+  has_many :users_gears, dependent: :destroy
   
 
   validates :name, presence: true

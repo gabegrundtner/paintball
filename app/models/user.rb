@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :gears, dependent: :destroy
   has_many :participants, dependent: :destroy
-  has_many :users_gears
+  has_many :users_gears, dependent: :destroy
   
   
 

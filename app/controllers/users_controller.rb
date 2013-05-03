@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
+      format.js
     end
   end
 
@@ -47,6 +48,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -99,6 +101,8 @@ class UsersController < ApplicationController
     end
   end
 
+  
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -108,6 +112,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end

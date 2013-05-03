@@ -1,0 +1,33 @@
+<table class="table table-striped" id="current_player_listing">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+
+<% @users.each do |user| %>
+  <% unless user.status == "Alumni" %>
+  <tr id="<%= user_id_helper(user) %>">
+    <td><%= link_to user.name, user %></td>
+    <td><%= user.status %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+<%= link_to "Back to All Players", static_pages_users_path, id: "players_link", remote: true %>

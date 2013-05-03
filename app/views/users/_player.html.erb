@@ -1,0 +1,11 @@
+<tr id="<%= user_id_helper(@user) %>">
+    <td><%= link_to @user.name, @user %></td>
+    <td><%= @user.status %></td>
+    <td><%= link_to 'Destroy', @user, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger", remote: true %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>

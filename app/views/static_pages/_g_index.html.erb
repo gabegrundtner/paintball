@@ -1,11 +1,9 @@
-<table>
+<table class="table table-striped" id="gear_listing">
   <tr>
     <th>Name</th>
     <th>Owner</th>
     <th>For Sale</th>
     <th>Cost</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -22,7 +20,7 @@
     <td>N/A</td>
     <% end %>
     <% if can? :destroy, gear %>
-    <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete, remote: true %></td>
+    <td><%= link_to 'Destroy', user_gear_path(user, gear), confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger", remote: true %></td>
     <% end %>
   </tr>
 <% end %>

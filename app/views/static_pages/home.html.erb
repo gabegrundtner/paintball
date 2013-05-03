@@ -7,17 +7,17 @@
 	<div class="span3">
 		<p><b>HOME OF THE SMU KIDZ</b></p>
 	</div>
-	<div class="span14" id="append_me">
+	<div class="span14 center" id="append_me">
 		<div id="place">
 			<p>Where the cool kids are</p>
 		</div>
 	</div>
 	<div class="span3">
 	<ul class="nav pull-right">
-		<li><%= link_to "tournaments", static_pages_tournaments_path, remote: true %></li>
-		<li><%= link_to "players", static_pages_users_path, remote: true %></li>
+		<li><%= link_to "tournaments", static_pages_tournaments_path, id: "tournies_link", remote: true %></li>
+		<li><%= link_to "players", static_pages_users_path, id: "players_link", remote: true %></li>
 		<% if can? :read, @gear %>
-		<li><%= link_to 'gear', static_pages_gears_path, remote: true %>
+		<li><%= link_to 'gear', static_pages_gears_path, id: "gear_link", remote: true %>
 		<% end %>
 	</ul>
 </div>

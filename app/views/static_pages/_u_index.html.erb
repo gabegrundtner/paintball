@@ -1,16 +1,30 @@
-<table>
+<table class="table table-striped" id="player_listing">
   <tr>
     <th>Name</th>
+    <th>Status</th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr id="<%= user_id_helper(user) %>">
     <td><%= link_to user.name, user %></td>
+    <td><%= user.status %></td>
     <% if can? [:update, :destroy], user %>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger", remote: true %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <% end %>
   </tr>
 <% end %>
@@ -18,5 +32,7 @@
 
 <br />
 <% if can? :create, @user %>
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, id: "new_player_link", remote: true %>
 <% end %>
+|
+<%= link_to 'Current Roster', static_pages_current_roster_path, remote: true %>

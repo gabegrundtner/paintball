@@ -20,6 +20,13 @@ class StaticPagesController < ApplicationController
   	end
   end
 
+  def current_roster
+  	@users = User.all
+    respond_to do |format|
+      format.js
+     end
+  end
+
   def gears
   	@gears = Gear.all
   	respond_to do |format|
