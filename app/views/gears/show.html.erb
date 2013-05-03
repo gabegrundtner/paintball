@@ -26,13 +26,13 @@
   Yes
   <br >
 <% unless current_user.id == @gear.user_id %>
-<div>
+<div id="interested_or_not">
   <% if current_user.is_interested(@gear) %>
   <p id="already_interested">You're already interested</p><br >
-  <%= link_to "Not Interested Anymore", mark_uninterested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-danger" %>
+  <%= link_to "Not Interested Anymore", mark_uninterested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-danger", remote: true %>
   <% else %>
   <p id="interested">Interested in this piece of gear?</p><br >
- <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary" %>
+ <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary", remote: true %>
   <% end %>
 </div>
 <% end %>

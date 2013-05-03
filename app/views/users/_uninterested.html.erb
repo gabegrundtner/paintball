@@ -1,0 +1,4 @@
+<div id="uninterested">
+<p>You're already interested</p><br >
+  <%= link_to "Not Interested Anymore", mark_uninterested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-danger", remote: true %>
+</div>

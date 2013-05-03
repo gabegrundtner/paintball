@@ -1,0 +1,7 @@
+ <tr>
+    <td><%= @tournament.date %></td>
+    <td><%= @tournament.location %></td>
+    <td><%= link_to 'View Tournament', @tournament %></td>
+    <td><%= link_to 'Edit', edit_tournament_path(@tournament) %></td>
+    <td><%= link_to 'Destroy', @tournament, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>

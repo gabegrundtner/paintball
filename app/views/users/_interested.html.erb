@@ -1,0 +1,4 @@
+<div id="interested">
+<p>Interested in this piece of gear?</p><br >
+ <%= link_to "Mark Interested", mark_interested_gear_user_path(current_user, gear_id: @gear.id), :class => "btn btn-large btn-primary", remote: true %>
+</div>

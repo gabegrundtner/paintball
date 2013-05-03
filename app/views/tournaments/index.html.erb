@@ -26,5 +26,5 @@
 
 <br />
 <% if can? :create, @tournament %>
-<%= link_to 'New Tournament', new_tournament_path %>
+<%= link_to 'New Tournament', new_tournament_path, id: "new_tournament_link", remote: true %>
 <% end %>

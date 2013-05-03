@@ -1,5 +1,5 @@
 <div class="place">
-<table>
+<table id="tournament_listing">
   <tr>
     <th>Date</th>
     <th>Location</th>
@@ -25,6 +25,6 @@
 
 <br />
 <% if can? :create, Tournament %>
-<%= link_to 'New Tournament', new_tournament_path %>
+<%= link_to 'New Tournament', new_tournament_path, id: "new_tournament_link", remote: true %>
 <% end %>
 </div>

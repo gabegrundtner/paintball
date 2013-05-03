@@ -30,6 +30,7 @@ class TournamentsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @tournament }
+      format.js
     end
   end
 
@@ -47,6 +48,7 @@ class TournamentsController < ApplicationController
       if @tournament.save
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render json: @tournament, status: :created, location: @tournament }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @tournament.errors, status: :unprocessable_entity }

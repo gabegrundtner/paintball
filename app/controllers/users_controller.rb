@@ -82,15 +82,21 @@ class UsersController < ApplicationController
       @gear = Gear.find(params[:gear_id])
       @user.interested(@gear)
 
-      redirect_to @gear
+      respond_to do |format|
+        format.html { redirect_to @gear }
+        format.js
+      end
   end
 
   def mark_uninterested_gear
     @user = User.find(params[:id])
     @gear = Gear.find(params[:gear_id])
     @user.uninterested(@gear)
-
-    redirect_to @gear
+    
+    respond_to do |format|
+      format.html { redirect_to @gear }
+      format.js
+    end
   end
 
   # DELETE /users/1
